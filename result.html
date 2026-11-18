@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Results | InterviewAI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<nav class="navbar">
+    <h2>Interview<span>AI</span></h2>
+    <a href="/dashboard">Dashboard</a>
+</nav>
+
+<main class="result-container">
+
+    <span class="tag">INTERVIEW COMPLETED</span>
+    <h1>Your Performance Report</h1>
+
+    <div class="score-card">
+        <div class="score-circle">
+            <strong>{{ result.score }}</strong>
+            <span>/ 100</span>
+        </div>
+        <h2>Your Interview Score</h2>
+        <p>{{ result.category }} · {{ result.difficulty }}</p>
+    </div>
+
+    <div class="feedback-card">
+        <h3>Question</h3>
+        <p>{{ result.question }}</p>
+    </div>
+
+    <div class="feedback-card">
+        <h3>Your Answer</h3>
+        <p>{{ result.answer }}</p>
+    </div>
+
+    <div class="feedback-card">
+        <h3>✦ AI Feedback</h3>
+        <p>{{ result.feedback }}</p>
+    </div>
+
+    <div class="feedback-card">
+        <h3>↗ Improvement Suggestions</h3>
+        <p>{{ result.suggestions }}</p>
+    </div>
+
+    <div class="result-actions">
+        <a href="/" class="btn">Practice Again</a>
+        <a href="/dashboard" class="btn secondary-btn">View Dashboard</a>
+    </div>
+
+</main>
+
+</body>
+</html>

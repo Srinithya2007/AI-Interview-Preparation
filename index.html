@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Interview Preparation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class="flash-messages">
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endwith %}
+
+<nav class="navbar">
+    <h2>Interview<span>AI</span></h2>
+    <div>
+        <a href="/">Home</a>
+        <a href="/dashboard">Dashboard</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-content">
+        <span class="tag">YOUR PERSONAL AI INTERVIEW COACH</span>
+        <h1>Prepare Smarter.<br><span>Perform Better.</span></h1>
+        <p>Practice interviews, improve your answers and build confidence with AI-powered feedback.</p>
+        <a href="#practice" class="btn">Start Practicing</a>
+    </div>
+
+    <div class="hero-card">
+        <div class="robot">✦</div>
+        <h2>AI Interview Coach</h2>
+        <p>Your preparation journey starts here.</p>
+        <div class="mini-stat">
+            <div><strong>24/7</strong><small>Practice</small></div>
+            <div><strong>AI</strong><small>Feedback</small></div>
+        </div>
+    </div>
+</section>
+
+<section class="practice-section" id="practice">
+    <div class="section-heading">
+        <span class="tag">GET STARTED</span>
+        <h2>Start Your Mock Interview</h2>
+        <p>Choose your subject and difficulty level.</p>
+    </div>
+
+    <form action="/start" method="POST" class="practice-form">
+
+        <label>Interview Category</label>
+        <select name="category" required>
+            <option value="Python">Python</option>
+            <option value="Java">Java</option>
+            <option value="JavaScript">JavaScript</option>
+            <option value="SQL">SQL</option>
+            <option value="HTML & CSS">HTML & CSS</option>
+            <option value="HR">HR Interview</option>
+            <option value="Machine Learning">Machine Learning</option>
+        </select>
+
+        <label>Difficulty Level</label>
+        <select name="difficulty" required>
+            <option value="Beginner">Beginner</option>
+            <option value="Intermediate" selected>Intermediate</option>
+            <option value="Advanced">Advanced</option>
+        </select>
+
+        <button type="submit" class="btn full-btn">
+            Generate AI Question →
+        </button>
+    </form>
+</section>
+
+<section class="features">
+    <div class="feature">
+        <span>✦</span>
+        <h3>AI Questions</h3>
+        <p>Get questions based on your selected technical subject.</p>
+    </div>
+    <div class="feature">
+        <span>◎</span>
+        <h3>Smart Evaluation</h3>
+        <p>Receive feedback on your submitted answers.</p>
+    </div>
+    <div class="feature">
+        <span>↗</span>
+        <h3>Track Progress</h3>
+        <p>Review previous interviews and scores.</p>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 InterviewAI | AI Interview Preparation Platform</p>
+</footer>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

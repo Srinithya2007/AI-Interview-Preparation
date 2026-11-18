@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | InterviewAI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<nav class="navbar">
+    <h2>Interview<span>AI</span></h2>
+    <div>
+        <a href="/">Home</a>
+        <a href="/dashboard">Dashboard</a>
+    </div>
+</nav>
+
+<main class="dashboard-container">
+
+    <span class="tag">YOUR PROGRESS</span>
+    <h1>Interview Dashboard</h1>
+    <p>Track your interview preparation journey.</p>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <h2>{{ total }}</h2>
+            <p>Total Attempts</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>{{ average }}%</h2>
+            <p>Average Score</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>{{ history|length }}</h2>
+            <p>Saved Sessions</p>
+        </div>
+    </div>
+
+    <h2 class="history-heading">Interview History</h2>
+
+    {% if history %}
+    <div class="history-list">
+        {% for item in history %}
+        <div class="history-item">
+            <div>
+                <h3>{{ item.category }}</h3>
+                <p>{{ item.difficulty }} · {{ item.created_at }}</p>
+                <p>{{ item.question }}</p>
+            </div>
+            <div class="history-score">
+                {{ item.score }}/100
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="empty-state">
+        <h3>No interviews yet!</h3>
+        <p>Start your first mock interview to see your progress.</p>
+        <a href="/" class="btn">Start Interview</a>
+    </div>
+    {% endif %}
+
+</main>
+</body>
+</html>
